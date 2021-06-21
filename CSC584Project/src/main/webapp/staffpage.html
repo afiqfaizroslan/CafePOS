@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+.btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+<h2>Staff Administration Page</h2>
+
+<p>Staff Informations</p>
+
+<table style="width:100%">
+  <tr>
+    <th>STAFF ID</th>
+    <th>NAME</th> 
+    <th>OUTLET ID</th>
+    <th>PHONE</th>
+    <th>PASSWORD</th>
+
+  </tr>
+  <tr>
+    <td>A101</td>
+    <td>AKMAL</td>
+    <td>PHG01</td>
+    <td>013-4425717</td>
+    <td>7769</td>
+  </tr>
+  <tr>
+    <td>A102</td>
+    <td>NURIN</td>
+    <td>KUL03</td>
+    <td>019-2726543</td>
+    <td>4545</td>
+  </tr>
+  <tr>
+    <td>A103</td>
+    <td>APEK</td>
+    <td>SAC02</td>
+    <td>017-8864243</td>
+    <td>6666</td>
+  </tr>
+</table>
+
+<h1>For Administration Use Only</h1>
+
+<div class="btn-group" style="width:100%">
+  <button style="width:25%">Add New</button>
+  <button style="width:25%">View All</button>
+  <button style="width:25%">Edit</button>
+  <button style="width:25%">Delete</button>
+</div>
+
+</body>
+</html>

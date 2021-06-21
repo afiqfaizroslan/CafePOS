@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+.btn-group button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+<h2>Store Management Page</h2>
+
+<p>Store Informations</p>
+
+<table style="width:100%">
+  <tr>
+    <th>OUTLET ID</th>
+    <th>OUTLET NAME</th> 
+    <th>OUTLET ADDRESS</th>
+  </tr>
+  <tr>
+    <td>PHG</td>
+    <td>CAFE PAHANG STORE</td>
+    <td>882, Jalan Air Putih, Taman Imbi, 25300 Kuantan, Pahang</td>
+  </tr>
+  <tr>
+    <td>KUL</td>
+    <td>CAFE KUALA LUMPUR STORE</td>
+    <td>50, Jalan Petaling, City Centre, 50000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</td>
+  </tr>
+  <tr>
+    <td>SAC</td>
+    <td>CAFE SHAH ALAM STORE</td>
+    <td>11, Jln Anggerik Aranda BG 31/BG, 40460 Shah Alam, Selangor</td>
+  </tr>
+</table>
+
+<h1>For Administration Use Only</h1>
+
+<div class="btn-group" style="width:100%">
+  <button style="width:25%">Add New</button>
+  <button style="width:25%">View All</button>
+  <button style="width:25%">Edit</button>
+  <button style="width:25%">Delete</button>
+</div>
+
+</body>
+</html>
