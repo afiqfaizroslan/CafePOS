@@ -23,7 +23,7 @@ if (Cur!= null)
 		<table style = "border:0;">
 		<tr>
 			<td>ID</td>
-			<td>: <input type="text" id="id" name="id" required></td>
+			<td>: <input type="text" id="id" name="id"  required ></td>
 		</tr>
 		<tr>
 			<td>Oulet name</td>

@@ -18,18 +18,18 @@
 <% 
 StaffBean Cur = (StaffBean) session.getAttribute("Current");
 ArrayList<PriceBean> List = new ArrayList<>();
-List = PriceDAO.getAll();
 String id =request.getParameter("id");
-ProductBean Product = ProductDAO.Find(id);
-String ID = Product.getPrice_ID();
 
 if (Cur!= null)
 {
+	ProductBean Product = ProductDAO.Find(id);
+	String ID = Product.getPrice_ID();
+	List = PriceDAO.getAll();
 %>
 <h2>Update</h2>
 <h4>Id:<%=id%></h4>
 	<form action="ProductU" method="post">
-	<input type="hidden" id="id" name="id" value="<%=id%>">
+	<input  id="id" name="id" value="<%=id%>">
 		<table style = "border:0;">
 		
 		<tr>

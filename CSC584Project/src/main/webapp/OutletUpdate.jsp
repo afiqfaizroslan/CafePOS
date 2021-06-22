@@ -15,9 +15,9 @@
 <body>
 <% 
 StaffBean Cur = (StaffBean) session.getAttribute("Current");
-OutletBean Outlet = OutletDAO.Find(Cur.getOutlet_ID());
 if (Cur!= null)
 {
+	OutletBean Outlet = OutletDAO.Find(Cur.getOutlet_ID());	
 %>
 <h2>Update Outlet</h2>
 <h4>Id:<%=Cur.getOutlet_ID()%></h4>

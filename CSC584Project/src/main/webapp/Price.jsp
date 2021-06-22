@@ -104,7 +104,7 @@ if (Cur!= null)
 	    </table>
 	    <br> <br> <br>
      	<a class="btn" href="#add" onclick="window.open('PriceAdd.jsp','Add','width=400,height=300')">Add Pricing</a>
-		</div>
+
 	</body>
 <%
 }

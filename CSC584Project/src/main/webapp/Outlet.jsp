@@ -122,9 +122,10 @@
 <% 
 StaffBean Cur = (StaffBean) session.getAttribute("Current");
 ArrayList<OutletBean> List = new ArrayList<>();
-List = OutletDAO.getAll();
+
 if (Cur!= null)
 {
+	List = OutletDAO.getAll();
 %>
 	<body>
 		<div class="topbar">
@@ -160,7 +161,7 @@ if (Cur!= null)
 			    <td><%= List.get(i).getName()%></td> 
 			    <td><%= List.get(i).getDetails()%></td>
 			    <td Style="text-align:center;"> 
-			    <form action="OutletD" method="post">
+			    <form action="OutletD" method="post" onsubmit="return confirm('Do you really want to delete this outlet?All data of outlet include staff will be deleted');">
 			      <input type="hidden" id="Currentid" name="Currentid" value="<%=Cur.getOutlet_ID() %>">
 			      <input type="hidden" id="Deleteid" name="Deleteid" value="<%=List.get(i).getID()%>">
 			      <input type="submit" value="Delete" class="btn">	
