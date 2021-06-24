@@ -123,7 +123,7 @@ if (Cur!= null)
 		<ul class="sidebar">
 			<li style ="padding-top:20px;">Welcome</li>
 			<li style ="padding-top:20px;padding-bottom:100px;"><%=Cur.getName()%></li>
-		  	<li><a href='#Sales.jsp'>Sales</a></li>
+		  	<li><a href='Sales.jsp'>Sales</a></li>
 			<li><a href='Staff.jsp'>Staff</a></li>
 			<li><a href='Outlet.jsp'> Outlet</a></li>
 			<li><a href='Product.jsp'> Product</a></li>

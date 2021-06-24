@@ -79,7 +79,7 @@ public class OutletDAO
 	public static void Delete (String ID)
 	{
 		try {
-			String queryString = "DELETE FROM outlet WHERE outlet_ID=?";
+			String queryString = "DELETE outlet,staff FROM outlet INNER JOIN staff ON staff.outlet_ID = outlet.outlet_ID WHERE outlet.outlet_ID=?";
 			currentCon = DatabaseConnection.getConnection();
 			ptmt = currentCon.prepareStatement(queryString);
 			ptmt.setString(1, ID);

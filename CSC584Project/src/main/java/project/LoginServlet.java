@@ -1,4 +1,5 @@
 package project;
+import project.sales.SalesBean;
 import project.staff.*;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -21,6 +22,7 @@ public class LoginServlet extends HttpServlet {
 		try 
 		{ 
 				StaffBean Staff = new StaffBean();
+				SalesBean Sales = new SalesBean();
 				Staff.setID(request.getParameter("ID"));
 				Staff.setPassword(request.getParameter("Password"));
 				Staff = StaffDAO.login(Staff);
@@ -29,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 				{ // logged-in page
 					HttpSession session = request.getSession(true); 
 					session.setAttribute("Current",Staff);
+					session.setAttribute("sales", Sales);
 	
 					RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 					rd.forward(request, response);
