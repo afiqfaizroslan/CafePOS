@@ -114,7 +114,7 @@ public class ProductDAO
 	public static void Delete (String ID)
 	{
 		try {
-			String queryString = "DELETE FROM product WHERE product_ID=?";
+			String queryString = "DELETE product,product_sale FROM product INNER JOIN product_sale ON product.product_ID=product_sale.product_ID WHERE product.product_ID=?";
 			currentCon = DatabaseConnection.getConnection();
 			ptmt = currentCon.prepareStatement(queryString);
 			ptmt.setString(1, ID);

@@ -219,8 +219,8 @@ if (Cur!= null)
 		  for (int i = 0; i < ListP.size(); i++) {
 		  %>
 			   <tr>
-			    <td><%= ListPro.get(i).get("Product")%></td>
-			    <td><%= ListPro.get(i).get("Total")%></td> 
+			    <td><%= ListP.get(i).get("Product")%></td>
+			    <td><%= ListP.get(i).get("Total")%></td> 
 			  </tr>
     		 <% } %>
 		</table>
