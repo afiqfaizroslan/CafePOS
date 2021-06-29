@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2021 at 05:52 AM
+-- Generation Time: Jun 29, 2021 at 09:26 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -38,9 +38,7 @@ CREATE TABLE `outlet` (
 --
 
 INSERT INTO `outlet` (`outlet_ID`, `outlet_Name`, `outlet_Details`) VALUES
-('JPN01', 'JAPAN', '03356948'),
-('PHG02', 'Pahang ', '033265447,lot 371 ,abc'),
-('SAC01', 'Shah alam', '033265447,lot 37');
+('PHG02', 'Pahang ', '033265447,lot 371 ,');
 
 -- --------------------------------------------------------
 
@@ -59,9 +57,9 @@ CREATE TABLE `price` (
 --
 
 INSERT INTO `price` (`price_ID`, `price_Value`, `price_Discount`) VALUES
-('STD001', 7.3, 0),
+('STD001', 5, 0),
 ('STD002', 5, 0),
-('STD003', 8.5, 0.1);
+('STD004', 6.5, 0);
 
 -- --------------------------------------------------------
 
@@ -82,9 +80,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_ID`, `product_Name`, `product_Details`, `product_Stocks`, `price_ID`) VALUES
-('CFE001', 'Mocha', 'Coffee with chocolate', 10, 'STD001'),
-('CFE002', 'Americano', 'Coffee with sugar ', 10, 'STD002'),
-('FDB001', 'Tiramisu cake', 'sponge Cake', 6, 'STD003');
+('CFE001', 'Mocha', 'Coffee with chocolate', 0, 'STD001');
 
 -- --------------------------------------------------------
 
@@ -93,9 +89,23 @@ INSERT INTO `product` (`product_ID`, `product_Name`, `product_Details`, `product
 --
 
 CREATE TABLE `product_sale` (
+  `id` int(11) NOT NULL,
   `product_ID` varchar(10) NOT NULL,
-  `sales_ID` varchar(10) NOT NULL
+  `sales_ID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_sale`
+--
+
+INSERT INTO `product_sale` (`id`, `product_ID`, `sales_ID`) VALUES
+(1, 'CFE001', 1),
+(4, 'CFE001', 3),
+(9, 'CFE001', 5),
+(10, 'CFE001', 5),
+(14, 'CFE001', 8),
+(20, 'CFE001', 11),
+(21, 'CFE001', 11);
 
 -- --------------------------------------------------------
 
@@ -104,11 +114,25 @@ CREATE TABLE `product_sale` (
 --
 
 CREATE TABLE `sales` (
-  `sales_ID` varchar(10) NOT NULL,
+  `sales_ID` int(11) NOT NULL,
   `staff_ID` varchar(10) NOT NULL,
-  `sales_Total` double NOT NULL,
-  `sales_date` date NOT NULL
+  `sales_Total` double DEFAULT NULL,
+  `sales_date` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`sales_ID`, `staff_ID`, `sales_Total`, `sales_date`) VALUES
+(1, '2019630822', 10, '29/06/2021 05:48:37'),
+(2, '2019630822', 5, '29/06/2021 05:50:33'),
+(3, '2019630822', 5, '29/06/2021 05:54:20'),
+(4, '2019630822', 10, '29/06/2021 06:02:48'),
+(5, '2019630822', 10, '29/06/2021 06:03:38'),
+(8, '2019630822', 10, '29/06/2021 14:23:21'),
+(10, '2019630822', 5, '29/06/2021 15:22:00'),
+(11, '2019630822', 10, '29/06/2021 15:22:50');
 
 -- --------------------------------------------------------
 
@@ -129,7 +153,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staff_ID`, `staff_Name`, `staff_Phone`, `staff_Password`, `outlet_ID`) VALUES
-('1234567890', 'Abu', '011151500013', '1234', 'SAC01'),
+('123456789', 'abu', '123456789', '1234', 'PHG02'),
 ('2019630822', 'Muhamad Afiq Faiz', '011151500013', '1234', 'PHG02');
 
 --
@@ -152,19 +176,75 @@ ALTER TABLE `price`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_ID`);
+  ADD PRIMARY KEY (`product_ID`),
+  ADD KEY `price_ID` (`price_ID`);
+
+--
+-- Indexes for table `product_sale`
+--
+ALTER TABLE `product_sale`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_ID` (`product_ID`),
+  ADD KEY `sales_ID` (`sales_ID`);
 
 --
 -- Indexes for table `sales`
 --
 ALTER TABLE `sales`
-  ADD PRIMARY KEY (`sales_ID`);
+  ADD PRIMARY KEY (`sales_ID`),
+  ADD KEY `staff_ID` (`staff_ID`);
 
 --
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`staff_ID`);
+  ADD PRIMARY KEY (`staff_ID`),
+  ADD KEY `outlet_ID` (`outlet_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `product_sale`
+--
+ALTER TABLE `product_sale`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `sales_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`price_ID`) REFERENCES `price` (`price_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `product_sale`
+--
+ALTER TABLE `product_sale`
+  ADD CONSTRAINT `product_sale_ibfk_1` FOREIGN KEY (`product_ID`) REFERENCES `product` (`product_ID`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `product_sale_ibfk_2` FOREIGN KEY (`sales_ID`) REFERENCES `sales` (`sales_ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `sales`
+--
+ALTER TABLE `sales`
+  ADD CONSTRAINT `sales_ibfk_1` FOREIGN KEY (`staff_ID`) REFERENCES `staff` (`staff_ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `staff`
+--
+ALTER TABLE `staff`
+  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`outlet_ID`) REFERENCES `outlet` (`outlet_ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
