@@ -127,6 +127,7 @@ ArrayList<ProductBean> List = new ArrayList<>();
 
 if (Cur!= null)
 {
+	
 	List = ProductDAO.getAll();
 %>
 	<body>
@@ -138,8 +139,8 @@ if (Cur!= null)
 			<li style ="padding-top:20px;">Welcome</li>
 			<li style ="padding-top:20px;padding-bottom:100px;"><%=Cur.getName()%></li>
 			<li><a href='index.jsp'>Home</a></li>
-		  	<li><a href='Sales.jsp'>Sales</a></li>
-			<li ><a href='Staff.jsp' class="onpage"> Staff</a></li>
+		  	<li><a href='Sales.jsp' class="onpage">Sales</a></li>
+			<li ><a href='Staff.jsp'> Staff</a></li>
 			<li><a href='Outlet.jsp'> Outlet</a></li>
 			<li><a href='Product.jsp'> Product</a></li>
 			<li><a href='SalesReport.jsp'> Sales Report</a></li>
@@ -170,13 +171,14 @@ if (Cur!= null)
 			    <td><%= price.getDiscount()%>%</td>
 			    <td><%= List.get(i).getDetails()%></td>
 			    <%
+			   if(sales!=null){
 			   if(sales.getID()!=0){%>
 			    <td>
 			     <form action="SalesA" method="post">
 			      <input type="hidden" id="sales" name="sales" value="<%=sales.getID()%>">
 			      <input type="hidden" id="product" name="product" value="<%=List.get(i).getID()%>">
 			      <input type="submit" value="Add" class="btn">	
-			      </form> </td> <% } %>
+			      </form> </td> <% }} %>
 			  </tr>
     		 <% } %>
 	    </table>
@@ -192,12 +194,14 @@ if (Cur!= null)
 	</td>
 	 <%
 		 ArrayList<SalesProductBean> ProductList = new ArrayList<>();
-		 ProductList = SalesDAO.getProduct(sales.getID());
-		 if(sales.getID()!=0){
+
+	 if(sales!=null){
+		   if(sales.getID()!=0){
+			 ProductList = SalesDAO.getProduct(sales.getID());
 		 %>	
 		  <td>
 	     <form action="SalesD" method="post">
-			  <input type="hidden" id="staff" name="staff" value="<%=sales.getID()%>">
+			  <input type="hidden" id="sales" name="sales" value="<%=sales.getID()%>">
 			  <input type="submit" value="Done" class="btn">	
 		</form>
 	</td>
@@ -230,15 +234,16 @@ if (Cur!= null)
 			    <td><%= ProductList.get(i).getProduct_ID()%></td>
 			    <td><%= ProductDAO.Find(ProductList.get(i).getProduct_ID()).getName()%></td> 
 			    <td>
-			     <form action="ProductD" method="post">
+			     <form action="ProSaleD" method="post">
 			      <input type="hidden" id="Deleteid" name="Deleteid" value="<%=ProductList.get(i).getId()%>">
+			      <input type="hidden" id="Productid" name="Productid" value="<%=ProductList.get(i).getProduct_ID()%>">
 			      <input type="submit" value="Delete" class="btn">	
 			      </form> 
 			     </td>
 			  </tr>
     		 <% } %>
 	    </table>	
-	    <%} %>
+	    <%}} %>
 		</div>
 	</body>
 <%

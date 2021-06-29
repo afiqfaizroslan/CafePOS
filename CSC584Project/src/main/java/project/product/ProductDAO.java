@@ -80,6 +80,36 @@ public class ProductDAO
 		}
 	}
 	
+	public static boolean updateStock(int Stock, String ID) {
+
+		try {
+			String queryString = "UPDATE product SET product_Stocks=? WHERE product_ID=?";
+			currentCon = DatabaseConnection.getConnection();
+			ptmt = currentCon.prepareStatement(queryString);
+			ptmt.setInt(1, Stock);
+			ptmt.setString(2,ID);
+			ptmt.executeUpdate();
+			System.out.println("Table Updated Successfully");
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace(); return false;
+		} finally {
+			try {
+				if (ptmt != null)
+					ptmt.close();
+				if (currentCon != null)
+					currentCon.close();
+			}
+
+			catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+	}
 	
 	public static void Delete (String ID)
 	{

@@ -225,4 +225,21 @@ public class StaffDAO
 		}       
         return StaffList;
     }
+	
+	public static StaffBean Find(String id)
+	{
+		 ArrayList<StaffBean> List = new ArrayList<>();
+		 StaffBean bean = new StaffBean();
+		 List = getAll();
+		 for (int i = 0; i < List.size(); i++) 
+		 { 
+			 if(List.get(i).getID().equals(id))
+			 {
+				 bean = List.get(i);
+			 }
+
+		 } 
+		 return bean;
+	
+	}
 }

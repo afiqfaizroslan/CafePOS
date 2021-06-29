@@ -28,18 +28,18 @@ public class PriceUpdate extends HttpServlet {
 				if(PriceDAO.update(Bean))
 				{
 					response.setContentType("text/html");  
-					out.println("<html><body><center>"); 				
-					out.println("<h2>Data Updated</h2>");
-					out.println("<input type='button' onclick='window.close();' value='OKAY'>"); 
-					out.println("</center></body></html>");
+					out.println("<script type=\"text/javascript\">");  
+					out.println("alert('Price Updated');"); 
+					out.println("window.location.href ='Price.jsp';");  
+					out.println("</script>");
 				}
 				else
 				{
 					response.setContentType("text/html");  
-					out.println("<html><body><center>"); 				
-					out.println("<h2>Data update failed</h2>");
-					out.println("<input type='button' onclick='window.close();' value='OKAY'>"); 
-					out.println("</center></body></html>");
+					out.println("<script type=\"text/javascript\">");  
+					out.println("alert('Update Failed');"); 
+					out.println("window.location.href ='Price.jsp';");  
+					out.println("</script>");
 				}
 
 	}

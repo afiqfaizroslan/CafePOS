@@ -93,7 +93,7 @@ if (Cur!= null)
 			    <td><%= List.get(i).getID()%></td>
 			    <td><%= List.get(i).getValue()%></td> 
 			    <td><%= List.get(i).getDiscount()%></td>
-			    <td> <button class="btn" onclick="window.open('PriceUpdate.jsp?id=<%= List.get(i).getID()%>','Update','width=400,height=300')">Update</button><br></td>
+			    <td> <button class="btn" onclick="document.location='PriceUpdate.jsp?id=<%= List.get(i).getID()%>'">Update</button><br></td>
 			    <td>
 			     <form action="PriceD" method="post">
 			      <input type="hidden" id="Deleteid" name="Deleteid" value="<%=List.get(i).getID()%>">

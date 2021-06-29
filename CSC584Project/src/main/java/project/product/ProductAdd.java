@@ -1,6 +1,7 @@
 package project.product;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,11 +20,27 @@ public class ProductAdd extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, java.io.IOException 
 	{ 	
 				String id = (request.getParameter("id"));
+				ArrayList<ProductBean> list = ProductDAO.getAll();
+				int index = 0;
+				for(int i=0;i<list.size();i++)
+				{
+					if(list.get(i).getID().substring(0, 3).equalsIgnoreCase(id))
+					{	
+						index++;
+						if(index!=Integer.parseInt(list.get(i).getID().substring(3, 6)))
+							   {
+								   index--;
+								   break;   
+							   }		
+					}
+				}
+				
+				String newID = id.toUpperCase()+String.format("%03d", index+1);				
 				String name = (request.getParameter("name"));
 				String details = (request.getParameter("details"));
 				int stocks = Integer.parseInt(request.getParameter("stock"));
 				String priceID = (request.getParameter("priceID"));
-				ProductBean Bean = new ProductBean(id,name,details,stocks,priceID);
+				ProductBean Bean = new ProductBean(newID,name,details,stocks,priceID);
 				PrintWriter out = response.getWriter();  
 				
 				

@@ -20,11 +20,11 @@ public class PriceDelete extends HttpServlet {
 	{ 
 					String Deleteid = (request.getParameter("Deleteid"));
 					PrintWriter out = response.getWriter();  
-
+					
 					response.setContentType("text/html");  
 					out.println("<script type=\"text/javascript\">");  
 					out.println("alert('Price Data Deleted');"); 
-					out.println("window.location.href ='Product.jsp';");  
+					out.println("window.location.href ='Price.jsp';");  
 					out.println("</script>");
 					PriceDAO.Delete(Deleteid);
 

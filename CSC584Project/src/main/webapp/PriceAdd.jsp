@@ -19,6 +19,7 @@ if (Cur!= null)
 {
 %>
 <h2>Add Outlet</h2>
+<p><em><small>*ID is not case-sensitive<br>*only put first 3 letter of product ID i.e (CFE,cfe,Cfe)</small></em></p>
 	<form action="PriceA" method="post">
 		<table style = "border:0;">
 		<tr>
