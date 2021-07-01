@@ -23,7 +23,7 @@
 	<body>
 	<div>
 			<h2>Cafe Point of Sales System </h2>
-			<form action="loginS" method="post">
+			<form action="logins" method="post">
 				<table>
 					<tr>
 						<td>Staff ID</td>

@@ -106,7 +106,7 @@
 		</style>
 	
 	<head>
-		<title>index - cafe Point of Sales System</title>
+		<title>Home - cafe Point of Sales System</title>
 	</head>
 <% 
 

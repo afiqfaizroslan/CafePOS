@@ -118,7 +118,7 @@
 		</style>
 	
 	<head>
-		<title>Staff - cafe Point of Sales System</title>
+		<title>Sales - cafe Point of Sales System</title>
 	</head>
 <% 
 StaffBean Cur = (StaffBean) session.getAttribute("Current");
