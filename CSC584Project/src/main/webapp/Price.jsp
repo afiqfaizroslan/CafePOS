@@ -16,7 +16,7 @@
 		<style>
 		.btn
 		{
-		  background-color: #8C9291;
+		  background-color: #936147;
 		  border: none;
 		  color: white;
 		  padding: 10px 24px;
@@ -29,7 +29,7 @@
 		}
 		.btn:link, .btn:visited
 		{
-		  background-color: #8C9291;
+		  background-color: #936147;
 		  color: white;
 		  padding: 10px 15px;
 		  text-align: center;
@@ -38,25 +38,26 @@
 		}
 		.btn:hover, .btn:active
 		{
-		  background-color: #7A7E7D;
+		  background-color: #936147;
 		}
 		.onpage
 		{
-		background-color: #7A7E7D;
+		background-color: #936147;
 		}
 		.content 
 		{
 			padding:20px;
+			padding-bottom:200px;
 			margin-top:40px;
-			background-color:#FFFFFF;
-			height:100%;
+			background-color:#FCE9B5;
+			height:90%;
 			margin-left: 200px;
 		}
 		
 		
 		table,th,td 
 		{
-			border-bottom: 1px solid #ddd;
+			border-bottom: 1px solid #936147;
 			border-collapse: collapse;
 			padding:5px;
 			text-align: left;
@@ -78,7 +79,7 @@ List = PriceDAO.getAll();
 if (Cur!= null)
 {
 %>
-	<body>
+	<body style="background: #EBCCB1">
 
 		<h2>Price</h2>
 		<table>
@@ -111,7 +112,7 @@ if (Cur!= null)
 else
 {
 %>
-	<body>
+	<body style="background: #EBCCB1">
 	<div>
 		<h2>Please login first!</h2>
 		<br><br>	

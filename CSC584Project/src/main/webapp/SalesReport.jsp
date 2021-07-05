@@ -17,7 +17,7 @@
 		<style>
 		.btn
 		{
-		  background-color: #8C9291;
+		  background-color: #936147;
 		  border: none;
 		  color: white;
 		  padding: 10px 24px;
@@ -30,7 +30,7 @@
 		}
 		.btn:link, .btn:visited
 		{
-		  background-color: #8C9291;
+		  background-color: #936147;
 		  color: white;
 		  padding: 10px 15px;
 		  text-align: center;
@@ -39,40 +39,73 @@
 		}
 		.btn:hover, .btn:active
 		{
-		  background-color: #7A7E7D;
+		  background-color: #936147;
 		}
 		.onpage
 		{
-		background-color: #7A7E7D;
+		background-color: #936147;
 		}
 		.content 
 		{
 			padding:20px;
 			padding-bottom:200px;
 			margin-top:40px;
-			background-color:#FFFFFF;
+			background-color:#FCE9B5;
 			height:90%;
 			margin-left: 200px;
 		}
 		
+		/* profile */
+		.profile 
+		{
+  			text-align: left;
+ 			width: 30px;
+  			height: 30px;
+  			border-radius: 40%;
+		}
+		
+		.grid-container {
+		  display: grid;
+		  grid-gap: 50px 50px;
+		  grid-template-columns: auto auto auto;
+		  padding: 30px;
+		  margin-left: auto;
+	 	  margin-right: auto;
+		}
+		
+		.grid-item {
+		  background-color: #AF7E65;
+		  border: 0;
+		  padding: 40px;
+		  font-size: 30px;
+		  text-align: center;
+		  height: 100px;
+		}
 		
 		table,th,td 
 		{
-			border-bottom: 1px solid #ddd;
+			border-bottom: 1px solid #936147;
 			border-collapse: collapse;
 			padding:5px;
 			text-align: left;
 		}
 		table{width: 70%;}
 		
-		body {margin:0;}
+		body 
+		{
+			background-image: url('cafebg.jpg');
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			margin:0;
+		}
 
 		.topbar {
 		  list-style-type: none;
 		  margin: 0;
 		  padding: 0;
 		  overflow: auto;
-		  background-color: #333;
+		  background-color: #AF7E65;
 		  position: fixed;
 		  top: 0;
 		  width: 100%;
@@ -83,7 +116,7 @@
  		margin: 0;
  		padding: 10px;
  		width: 10%;
-  		background-color:  #333;
+  		background-color:  #AF7E65;
   		 color: white;
   		position: fixed;
   		height:100%;
@@ -93,7 +126,7 @@
 		li a, li 
 		{
 		  display: block;
-		  color: white;
+		  color: black;
 		  text-align: center;
 		  padding: 8px 16px;
 		  text-decoration: none;
@@ -105,7 +138,7 @@
 		}
 		
 		li a:hover:not(.active) {
-		  background-color: #111;
+		  background-color: #F8E8C9;
 		}
 		
 		.active {
@@ -113,7 +146,7 @@
 				}
 		.topbtn
 			{
-			  color: white;
+			  color: black;
 			  text-align: center;
 			}
 			
@@ -149,13 +182,14 @@ if (Cur!= null)
 	ListPro =SalesDAO.getByProduct();
 	ListP =SalesDAO.getProductlist();
 %>
-	<body>
+	<body style="background: #EEE3C6">
 		<div class="topbar">
 		<h2 class ="topbtn">Cafe Point of Sales System </h2>
 		</div>
 		
 		<ul class="sidebar">
-			<li style ="padding-top:20px;">Welcome</li>
+			<li style ="padding-top:20px;"><h4>Welcome</h4></li>
+			<li><img src="profile.jpg" alt="profile" class="profile" /></li>
 			<li style ="padding-top:20px;padding-bottom:100px;"><%=Cur.getName()%></li>
 			<li><a href='index.jsp'>Home</a></li>
 		  	<li><a href='Sales.jsp' >Sales</a></li>
@@ -255,7 +289,7 @@ if (Cur!= null)
 else
 {
 %>
-	<body>
+	<body style="background: #EBCCB1">
 	<div>
 		<h2>Please login first!</h2>
 		<br><br>	

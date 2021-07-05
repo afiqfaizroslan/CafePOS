@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
 <title>Update</title>
 </head>
-<body>
+<body style="background: #EBCCB1">
 <% 
 StaffBean Cur = (StaffBean) session.getAttribute("Current");
 if (Cur!= null)
@@ -26,7 +26,7 @@ if (Cur!= null)
 			<td>: <input type="text" id="id" name="id"  required ></td>
 		</tr>
 		<tr>
-			<td>Oulet name</td>
+			<td>Outlet name</td>
 			<td>: <input type="text" id="name" name="name" required></td>
 		</tr>
 		<tr>
@@ -45,7 +45,7 @@ if (Cur!= null)
 else
 {
 %>
-	<body>
+	<body style="background: #EBCCB1">
 	<div>
 		<h2>Please login first!</h2>
 		<br><br>	

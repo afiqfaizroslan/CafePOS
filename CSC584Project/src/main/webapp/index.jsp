@@ -15,11 +15,22 @@
 			text-align: center;
 			padding:20px;
 			margin-top:40px;
-			background-color:#FFFFFF;
+			background-color:#FCE9B5; 
 			height:100%;
 			margin-left: 200px;
 		}
-		
+		.bg 
+		{
+  			background-image: url("cafebg.jpg");
+  			height: 100%; 
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+		}
+		div 
+		{
+			text-align: center;
+		}
 		
 		table,th,td 
 		{
@@ -37,19 +48,29 @@
 		  margin: 0;
 		  padding: 0;
 		  overflow: auto;
-		  background-color: #333;
+		  background-color: #AF7E65;
 		  position: fixed;
 		  top: 0;
 		  width: 100%;
 		}
+		
+		/* profile */
+		.profile 
+		{
+  			text-align: left;
+ 			width: 30px;
+  			height: 30px;
+  			border-radius: 40%;
+		}
+		
 		.sidebar
 		{
 		list-style-type: none;
  		margin: 0;
  		padding: 10px;
  		width: 10%;
-  		background-color:  #333;
-  		 color: white;
+  		background-color:  #AF7E65;
+  		 color: black;
   		position: fixed;
   		height:100%;
   		overflow: auto;
@@ -58,7 +79,7 @@
 		li a, li 
 		{
 		  display: block;
-		  color: white;
+		  color: black;
 		  text-align: center;
 		  padding: 8px 16px;
 		  text-decoration: none;
@@ -70,7 +91,7 @@
 		}
 		
 		li a:hover:not(.active) {
-		  background-color: #111;
+		  background-color: #F8E8C9;
 		}
 		
 		.active {
@@ -78,11 +99,12 @@
 				}
 		.topbtn
 			{
-			  color: white;
+			  color: black;
 			  text-align: center;
 			}
 			/* The grid container */
 		.grid-container {
+		  background-color: #FCE9B5;
 		  display: grid;
 		  grid-gap: 50px 50px;
 		  grid-template-columns: auto auto auto;
@@ -92,7 +114,7 @@
 		}
 		
 		.grid-item {
-		  background-color: #A9B0AF;
+		  background-color: #AF7E65;
 		  border: 0;
 		  padding: 40px;
 		  font-size: 30px;
@@ -100,7 +122,7 @@
 		  height: 100px;
 		}
 		.grid-item:hover:not(.active) {
-		  background-color: #CBD2D1;
+		  background-color: #F8E8C9;
 		}
 					
 		</style>
@@ -115,13 +137,14 @@ if (Cur!= null)
 {
 %>
 	
-	<body>
+	<body style="background: #FCE9B5">
 	<div class="topbar">
 		<h2 class="topbtn">Cafe Point of Sales System </h2>
 		</div>
 		
 		<ul class="sidebar">
-			<li style ="padding-top:20px;">Welcome</li>
+			<li style ="padding-top:20px;"><h4>Welcome</h4></li>
+			<li><img src="profile.jpg" alt="profile" class="profile" /></li>
 			<li style ="padding-top:20px;padding-bottom:100px;"><%=Cur.getName()%></li>
 		  	<li><a href='Sales.jsp'>Sales</a></li>
 			<li><a href='Staff.jsp'>Staff</a></li>
@@ -149,7 +172,7 @@ if (Cur!= null)
 else
 {
 %>
-	<body>
+	<body style="background: #EBCCB1">
 	<div>
 		<h2>Please login first!</h2>
 		<br><br>	

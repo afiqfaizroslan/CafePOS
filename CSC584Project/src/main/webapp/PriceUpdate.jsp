@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
 <title>Update</title>
 </head>
-<body>
+<body style="background: #EBCCB1">
 <% 
 StaffBean Cur = (StaffBean) session.getAttribute("Current");
 String id =request.getParameter("id");
@@ -46,7 +46,7 @@ if (Cur!= null)
 else
 {
 %>
-	<body>
+	<body style="background: #EBCCB1">
 	<div>
 		<h2>Please login first!</h2>
 		<br><br>	

@@ -10,6 +10,14 @@
 		text-align: center;
 	}
 	
+	body 
+	{
+		background-image: url('cafebg.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover; 
+	}
+	
 	table 
 	{
  		margin-left: auto;
